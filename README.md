@@ -58,18 +58,19 @@ set MAX_JOBS=10
 
 #To include cuDSS (only if you have cuDSS installed)
 set USE_CUDSS=1
-set CUDSS_LIBRARY_PATH=PATH_TO_CUDSS_INSTALL_DIR\lib\12
-set CUDSS_INCLUDE_PATH=PATH_TO_CUDSS_INSTALL_DIR\include
+set CUDSS_LIBRARY_PATH=C:\Program Files\NVIDIA cuDSS\v0.6\lib\12
+set CUDSS_INCLUDE_PATH=C:\Program Files\NVIDIA cuDSS\v0.6\include
 
 #To include cuSPARSELt (only if you have cuSPARSELt installed)
 set USE_CUSPARSELT=1
-set CUSPARSELT_INCLUDE_PATH=PATH_TO_CUSPARSELT_INSTALL_DIR\include
-set CUSPARSELT_LIBRARY_PATH=PATH_TO_CUSPARSELT_INSTALL_DIR\lib
+set CUSPARSELT_INCLUDE_PATH=C:\Program Files\NVIDIA cuSPARSELt\v0.7\include
+set CUSPARSELT_LIBRARY_PATH=C:\Program Files\NVIDIA cuSPARSELt\v0.7\lib
+
 
 #To include cuDNN:
 set USE_CUDNN=1
-set CUDNN_LIBRARY_PATH=PATH_TO_CUDNN_INSTALL_DIR\lib\CUDNN_CUDA_VERSION\x64
-set CUDNN_INCLUDE_PATH=PATH_TO_CUDNN_INSTALL_DIR\include\CUDNN_CUDA_VERSION
+set CUDNN_LIBRARY_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\lib\x64
+set CUDNN_INCLUDE_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\include
 
 #Flash Attention v3 build has been disabled inside WSL2 and Windows due to compiler being killed on WSL2, and extremely long compiling times on Windows. Hopper is not available on Windows, so FA3 has no sense anyway. 
 #Build can be forcefully enabled using the following environment var:
@@ -83,6 +84,9 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 #With your already installed torch cuda version (make sure you have torch cuda installed if you use a virtual environment)
 python use_existing_torch.py
+
+git config --system core.longpaths true  #if running cmd as admin
+git config --global core.longpaths true  #if local user
 
 pip install -r requirements/build.txt
 pip install -r requirements/windows.txt
