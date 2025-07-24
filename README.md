@@ -44,9 +44,9 @@ set CUDA_ROOT=CUDA_INSTALLATION_PATH
 
 1. Open a Command Line (cmd.exe)
 2. Clone the vLLM repository: ```cd C:\ & git clone https://github.com/SystemPanic/vllm-windows.git```
-3. Execute (in cmd) ```VISUAL_STUDIO_INSTALL_PATH\VC\Auxiliary\Build\vcvarsall.bat x64```
-4. Change the working directory to the cloned repository path, for example: ```cd C:\vllm-windows```
-5. Set the following environment variables:
+3. Execute (in cmd) ```%comspec% /k ""C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat" x64 -vcvars_ver=14.29"```
+5. Change the working directory to the cloned repository path, for example: ```cd C:\vllm-windows```
+6. Set the following environment variables:
 
 ```
 set DISTUTILS_USE_SDK=1
